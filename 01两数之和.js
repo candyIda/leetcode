@@ -10,3 +10,5 @@ var twoSum = function(nums, target) {
     });
     return results
 };
+
+// foreach不能像for循环通过break continue 这样跳出
