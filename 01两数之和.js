@@ -10,5 +10,6 @@ var twoSum = function(nums, target) {
     });
     return results
 };
+console.log(Math.pow(10, 2))
 
 // foreach不能像for循环通过break continue 这样跳出
