@@ -1,15 +1,16 @@
 var twoSum = function(nums, target) {
-    const myArr = nums
-    let results
-    myArr.forEach((element, index) => {
-        const myValue = target - element;
-        if (nums.indexOf(myValue) != -1){
-            const otherIndex = nums.indexOf(myValue)
-            results = [index, otherIndex]
+    let map = new Map();
+    let len = nums.length;
+    for (i = 0; i < len; i++){
+        let count = target - nums[i];
+        if(map.has(count)){
+            return [map.get(count), i];
+        } else{
+            map.set(nums[i], i);
         }
-    });
-    return results
+    }
+    return [];
 };
-console.log(Math.pow(10, 2))
+console.log(twoSum([2,4,11,3],6))
 
 // foreach不能像for循环通过break continue 这样跳出
