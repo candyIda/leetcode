@@ -33,5 +33,27 @@ var printNumbers_2 = function(n) {
     }
     return res;
 }
-console.log(printNumbers_2(2));
 
+// 考虑大数问题 用dfs算法
+var printNumbers_dfs = function(n){
+    let res = [];
+    var dfs = function(target, bitNumber) {
+        if(target.length == bitNumber){
+            res.push(target);
+            return;
+        }
+        for(let i = 0; i <= 9; i++){
+            target += i.toString();
+            dfs(target, bitNumber);
+            target = target.slice(0, -1);//删掉末尾的数字
+        }
+    }
+
+    for(let i = 1; i <= n; i++){
+        for(let j = 1; j <= 9; j++){
+            dfs(j.toString(), i);
+        }
+    }
+    return res;
+}
+console.log(printNumbers_dfs(2));
